@@ -13,7 +13,7 @@ namespace Tao_OpenGL_Initialization_Test
    
     class Draw
     {
-        PrintText2D pr = new PrintText2D();
+        
         private float sizeOfSystem;
         public Draw(float sizeOfSystem)
         {
@@ -33,13 +33,16 @@ namespace Tao_OpenGL_Initialization_Test
             DrawAxis();
             DrawArrows();
             Gl.glEnd();
+
+            DrawNet();
             DrawSigna();
+            
 
         }
         private void DrawSigna()
         {
-            pr.PrintText(sizeOfSystem + 0.3f, 0, "x");
-            pr.PrintText( 0.3f, sizeOfSystem - 0.3f, "y");
+            PrintText2D.PrintText(sizeOfSystem + 0.3f, 0, "x");
+            PrintText2D.PrintText(0.3f, sizeOfSystem - 0.3f, "y");
         }
         private void DrawAxis()
         {
@@ -61,6 +64,23 @@ namespace Tao_OpenGL_Initialization_Test
             Gl.glVertex2d(v, 0.1);
             Gl.glVertex2d(sizeOfSystem, 0);
             Gl.glVertex2d(v, -0.1);
+        }
+        private void DrawNet()
+        {
+            Gl.glColor3f(0, 0, 255);
+            Gl.glPointSize(3);
+            Gl.glBegin(Gl.GL_POINTS);
+
+            for(float ax = -sizeOfSystem; ax < sizeOfSystem; ax++)
+            {
+                for(float bx = -sizeOfSystem; bx < sizeOfSystem; bx++)
+                {
+                    Gl.glVertex2d(ax, bx);
+                }
+            }
+            Gl.glColor3f(0, 0, 0);
+            Gl.glEnd();
+           
         }
     }
 

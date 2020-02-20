@@ -20,14 +20,16 @@ namespace Tao_OpenGL_Initialization_Test
         private float devY;
 
         private float[,] GrapValuesArray;
-        private int elements_count = 0;
 
         private bool not_calculate = true;
         private int pointPosition = 0;
 
-        float lineX, lineY;
         float Mcoord_X = 0, Mcoord_Y = 0;
-        PrintText2D printText = new PrintText2D();
+
+        Method method = new Method();
+
+        int size = 300;
+        float x0 = 0.1f, y0 = 0.1f, step = 0.1f;
 
         public Form1()
         {
@@ -38,40 +40,21 @@ namespace Tao_OpenGL_Initialization_Test
             }
         }
 
-        private void functionCalculation()
-        {
-            float x = 0.01f, y = 0.01f;
-            GrapValuesArray = new float[301, 2];
-            GrapValuesArray[0, 0] = x;
-            GrapValuesArray[0, 1] = y;
-            elements_count = 1;
-
-            for(float f = 0; f < 30; f += 0.1f)
-            {
-                y += func(x,y,f);
-                x += func(x, y, f);
-                GrapValuesArray[elements_count, 0] = x;
-                GrapValuesArray[elements_count, 1] = y;
-                elements_count++;
-            }
-            not_calculate = false;
-        }
-        private float func(float x, float y, float t)
-        {
-            float h = 0.1f, a = 8f, b = 3f, omega = 8f;
-
-            return (float)(h*(-a * (x * x - 1) * y + b * Math.Cos(omega * t)));
-        }
+       
         private void DrawDiagram()
         {
+            method.setCalculateMethod(new MethodEulera());
+
             if (not_calculate)
             {
-                functionCalculation();
+                GrapValuesArray = method.calculate(size, new VanDerPol(5, 5, 5), x0, y0, step);
+                
+                not_calculate = false;
             }
 
             Gl.glBegin(Gl.GL_LINE_STRIP);
             Gl.glVertex2d(GrapValuesArray[0, 0], GrapValuesArray[0, 1]);
-            for (int ax = 1; ax < elements_count; ax += 2)
+            for (int ax = 1; ax < size; ax += 2)
             {
                 Gl.glVertex2d(GrapValuesArray[ax, 0], GrapValuesArray[ax, 1]);
             }
@@ -88,14 +71,12 @@ namespace Tao_OpenGL_Initialization_Test
         {
             Mcoord_X = e.X;
             Mcoord_Y = e.Y;
-            lineX = devX * e.X;
-            lineY = (float)(ScreenH - devY * e.Y);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            if (pointPosition == elements_count - 1)
+            if (pointPosition == size - 1)
                 pointPosition = 0;
 
             Draw();
@@ -140,7 +121,7 @@ namespace Tao_OpenGL_Initialization_Test
 
             Gl.glPopMatrix();
 
-            printText.PrintText(devX * Mcoord_X + 0.2f, 
+            PrintText2D.PrintText(devX * Mcoord_X + 0.2f, 
                 (float)ScreenH - devY * Mcoord_Y + 0.4f, 
                 "[ x: " + (devX * Mcoord_X - 5f).ToString() 
                 + " ; y: " + ((float)ScreenH - devY * Mcoord_Y - 5f).ToString() + "]");

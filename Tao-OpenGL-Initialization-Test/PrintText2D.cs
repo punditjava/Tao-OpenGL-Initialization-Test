@@ -8,9 +8,9 @@ using Tao.OpenGl;
 
 namespace Tao_OpenGL_Initialization_Test
 {
-    class PrintText2D
+    static class PrintText2D
     {
-        public void PrintText(float x, float y, string text)
+        public static void PrintText(float x, float y, string text)
         {
             Gl.glRasterPos2f(x, y);
             foreach (char char_for_graw in text)
