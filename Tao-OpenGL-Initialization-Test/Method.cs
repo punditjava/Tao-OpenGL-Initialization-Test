@@ -9,7 +9,9 @@ namespace Tao_OpenGL_Initialization_Test
     class Method
     {
         private CalcuteMethods calcuteMethod;
-        public Method() { }
+        private Formula formula;
+        public Method() {
+        }
 
         public Method(CalcuteMethods calcuteMethod)
         {
@@ -19,9 +21,13 @@ namespace Tao_OpenGL_Initialization_Test
         {
             this.calcuteMethod = calcuteMethod;
         }
-        public float[,] calculate(int size, VanDerPol vanDerPol, float x0, float y0, float step)
+        public float[,] calculate(int size, float x0, float y0)
         {
-            return this.calcuteMethod.calcute(size,vanDerPol,x0,y0,step);
+            return this.calcuteMethod.calcute(size,formula,x0,y0);
+        }
+        public void setFormula(Formula formula)
+        {
+            this.formula = formula;
         }
     }
 }

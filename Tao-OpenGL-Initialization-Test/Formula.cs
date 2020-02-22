@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Tao_OpenGL_Initialization_Test
 {
-    interface CalcuteMethods
+    interface Formula
     {
-        float[,] calcute(int size, Formula formula, float x0, float y0);
+        float computingX(float x, float y, float t);
+        float computingY(float x, float y, float t);
     }
 }

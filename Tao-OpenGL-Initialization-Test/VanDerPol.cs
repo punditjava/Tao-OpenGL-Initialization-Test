@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tao_OpenGL_Initialization_Test
 {
-    class VanDerPol
+    class VanDerPol : Formula 
     {
         private float alfa, omega, beta;
         public VanDerPol(float alfa, float beta,float omega)
@@ -15,7 +15,11 @@ namespace Tao_OpenGL_Initialization_Test
             this.beta = beta;
             this.omega = omega;
         }
-        public float computingVanDerPol(float x, float y, float t)
+        public float computingX(float x, float y, float t)
+        {
+            return y;
+        }
+        public float computingY(float x, float y, float t)
         {
             return (float)((-alfa * (x * x - 1) * y + beta * Math.Cos(omega * t)));
         }
