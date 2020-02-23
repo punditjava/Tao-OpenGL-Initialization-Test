@@ -28,7 +28,7 @@ namespace Tao_OpenGL_Initialization_Test
 
         float Mcoord_X = 0, Mcoord_Y = 0;
 
-        private Method method = new Method();
+        private MethodSelector method = new MethodSelector();
 
         int countOfMas = 300;
         float x0 = 0.1f, y0 = 0.1f;
@@ -43,6 +43,24 @@ namespace Tao_OpenGL_Initialization_Test
                 AnT.InitializeContexts();
             }
         }
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            alfa = (float)trackBar1.Value / 100;
+            notCalculate = true;
+        }
+
+        private void trackBar2_Scroll(object sender, EventArgs e)
+        {
+            beta = (float)trackBar2.Value / 100;
+            notCalculate = true;
+        }
+
+        private void trackBar3_Scroll(object sender, EventArgs e)
+        {
+            omega = (float)trackBar3.Value / 100;
+            notCalculate = true;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             Glut.glutInit();
@@ -104,12 +122,11 @@ namespace Tao_OpenGL_Initialization_Test
             Mcoord_Y = e.Y;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1Tick(object sender, EventArgs e)
         {
 
             if (pointPosition == countOfMas - 1)
                 pointPosition = 0;
-
             Draw();
             
             pointPosition++;
@@ -120,16 +137,23 @@ namespace Tao_OpenGL_Initialization_Test
             Draw draw = new Draw(zoom / 2);
 
             draw.DrawSystemOfCoordinates();
+            outputLabes();
             DrawDiagram();
 
             Gl.glPopMatrix();
 
             PrintText2D.PrintText(devX * Mcoord_X + 0.2f, 
                 (float)ScreenH - devY * Mcoord_Y + 0.4f, 
-                "[ x: " + (devX * Mcoord_X - 5f).ToString() 
+                "[ x: " + (devX * Mcoord_X - zoom/2f).ToString() 
                 + " ; y: " + ((float)ScreenH - devY * Mcoord_Y - (zoom / 2)).ToString() + "]");
 
             AnT.Invalidate();
+        }
+        private void outputLabes()
+        {
+            printAlfaLabel.Text = alfa.ToString();
+            printBetaLabel.Text = beta.ToString();
+            printOmegaLabel.Text = omega.ToString();
         }
     }
 }

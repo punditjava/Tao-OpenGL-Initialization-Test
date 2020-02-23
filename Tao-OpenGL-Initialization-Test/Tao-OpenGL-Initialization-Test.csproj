@@ -82,7 +82,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Formula.cs" />
-    <Compile Include="Method.cs" />
+    <Compile Include="MethodSelector.cs" />
     <Compile Include="MethodEulera.cs" />
     <Compile Include="PrintText2D.cs" />
     <Compile Include="Program.cs" />

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Tao_OpenGL_Initialization_Test
 {
-    class Method
+    class MethodSelector
     {
         private CalcuteMethods calcuteMethod;
         private Formula formula;
-        public Method() {
+        public MethodSelector() {
         }
 
-        public Method(CalcuteMethods calcuteMethod)
+        public MethodSelector(CalcuteMethods calcuteMethod)
         {
             this.calcuteMethod = calcuteMethod;
         }
