@@ -19,7 +19,7 @@ namespace Tao_OpenGL_Initialization_Test
         private float devX;
         private float devY;
 
-        private float alfa = 2.5f, beta = 7f, omega = 5f;
+        private float alfa = 2.5f, beta = 21f, omega = 5f;
 
         private float[,] GrapValuesArray;
 
@@ -86,13 +86,21 @@ namespace Tao_OpenGL_Initialization_Test
             devY = (float)ScreenH / (float)AnT.Height;
             Gl.glMatrixMode(Gl.GL_MODELVIEW);
 
+            listBox1.SetSelected(1, true);
             timer1.Start();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == 1)
+                method.setCalculateMethod(new MethodRungeKutta());
+            else method.setCalculateMethod(new MethodEulera());
+            notCalculate = true;
         }
 
         private void DrawDiagram()
         {
             method.setFormula(new VanDerPol(alfa, beta, omega));
-            method.setCalculateMethod(new MethodRungeKutta());
 
             if (notCalculate)
             {

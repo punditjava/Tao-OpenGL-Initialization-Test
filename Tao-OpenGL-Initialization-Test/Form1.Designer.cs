@@ -40,12 +40,23 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.trackBar3 = new System.Windows.Forms.TrackBar();
+            this.calcuteMethodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.methodRungeKuttaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.calcuteMethodsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.methodEuleraBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.methodRungeKuttaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             labelAlfa = new System.Windows.Forms.Label();
             labelBeta = new System.Windows.Forms.Label();
             labelOmega = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calcuteMethodsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.methodRungeKuttaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calcuteMethodsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.methodEuleraBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.methodRungeKuttaBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelAlfa
@@ -130,6 +141,7 @@
             // 
             this.trackBar1.Location = new System.Drawing.Point(912, 135);
             this.trackBar1.Maximum = 5000;
+            this.trackBar1.Minimum = -5000;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar1.Size = new System.Drawing.Size(56, 545);
@@ -141,27 +153,49 @@
             // 
             this.trackBar2.Location = new System.Drawing.Point(1028, 135);
             this.trackBar2.Maximum = 5000;
+            this.trackBar2.Minimum = -5000;
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar2.Size = new System.Drawing.Size(56, 545);
-            this.trackBar2.TabIndex = 8;
-            this.trackBar2.Value = 800;
+            this.trackBar2.TabIndex = 1;
+            this.trackBar2.Value = 2100;
             this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // trackBar3
             // 
             this.trackBar3.Location = new System.Drawing.Point(1119, 135);
             this.trackBar3.Maximum = 5000;
+            this.trackBar3.Minimum = -5000;
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar3.Size = new System.Drawing.Size(56, 545);
-            this.trackBar3.TabIndex = 9;
+            this.trackBar3.TabIndex = 1;
             this.trackBar3.Value = 500;
             this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
             // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.SystemColors.Menu;
+            this.listBox1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 31;
+            this.listBox1.Items.AddRange(new object[] {
+            "Метод Эйлера",
+            "Метод Рунге-Кутта"});
+            this.listBox1.Location = new System.Drawing.Point(912, 699);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(233, 97);
+            this.listBox1.TabIndex = 14;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // methodRungeKuttaBindingSource1
+            // 
+            this.methodRungeKuttaBindingSource1.DataSource = typeof(Tao_OpenGL_Initialization_Test.MethodRungeKutta);
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(1246, 853);
+            this.ClientSize = new System.Drawing.Size(1390, 853);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.printOmegaLabel);
             this.Controls.Add(this.printBetaLabel);
             this.Controls.Add(this.printAlfaLabel);
@@ -177,6 +211,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calcuteMethodsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.methodRungeKuttaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calcuteMethodsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.methodEuleraBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.methodRungeKuttaBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,6 +231,12 @@
         private System.Windows.Forms.Label printAlfaLabel;
         private System.Windows.Forms.Label printBetaLabel;
         private System.Windows.Forms.Label printOmegaLabel;
+        private System.Windows.Forms.BindingSource calcuteMethodsBindingSource;
+        private System.Windows.Forms.BindingSource methodRungeKuttaBindingSource;
+        private System.Windows.Forms.BindingSource calcuteMethodsBindingSource1;
+        private System.Windows.Forms.BindingSource methodEuleraBindingSource;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.BindingSource methodRungeKuttaBindingSource1;
     }
 }
 

@@ -10,7 +10,7 @@ namespace Tao_OpenGL_Initialization_Test
     {
         private Formula formula;
         private float x, y, t;
-        private const float dt = 0.1f; 
+        private const float dt = 0.1f;
 
         private float k1, k2, k3, k4, m1, m2, m3, m4;
         public float[,] calcute(int size, Formula formula, float x0, float y0)
