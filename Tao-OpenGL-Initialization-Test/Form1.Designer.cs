@@ -32,6 +32,8 @@
             System.Windows.Forms.Label labelAlfa;
             System.Windows.Forms.Label labelBeta;
             System.Windows.Forms.Label labelOmega;
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label2;
             this.printAlfaLabel = new System.Windows.Forms.Label();
             this.printBetaLabel = new System.Windows.Forms.Label();
             this.printOmegaLabel = new System.Windows.Forms.Label();
@@ -45,10 +47,14 @@
             this.calcuteMethodsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.methodEuleraBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.textBoxX0 = new System.Windows.Forms.TextBox();
+            this.textBoxY0 = new System.Windows.Forms.TextBox();
             this.methodRungeKuttaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             labelAlfa = new System.Windows.Forms.Label();
             labelBeta = new System.Windows.Forms.Label();
             labelOmega = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -62,57 +68,77 @@
             // labelAlfa
             // 
             labelAlfa.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            labelAlfa.Location = new System.Drawing.Point(907, 48);
+            labelAlfa.Location = new System.Drawing.Point(907, 77);
             labelAlfa.Name = "labelAlfa";
-            labelAlfa.Size = new System.Drawing.Size(85, 46);
+            labelAlfa.Size = new System.Drawing.Size(71, 29);
             labelAlfa.TabIndex = 2;
-            labelAlfa.Text = "alpha = ";
+            labelAlfa.Text = "alpha";
             labelAlfa.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // labelBeta
             // 
             labelBeta.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            labelBeta.Location = new System.Drawing.Point(1023, 48);
+            labelBeta.Location = new System.Drawing.Point(1023, 77);
             labelBeta.Name = "labelBeta";
-            labelBeta.Size = new System.Drawing.Size(85, 46);
+            labelBeta.Size = new System.Drawing.Size(67, 29);
             labelBeta.TabIndex = 5;
-            labelBeta.Text = "beta = ";
+            labelBeta.Text = "beta";
             labelBeta.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // labelOmega
             // 
             labelOmega.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            labelOmega.Location = new System.Drawing.Point(1114, 48);
+            labelOmega.Location = new System.Drawing.Point(1114, 77);
             labelOmega.Name = "labelOmega";
-            labelOmega.Size = new System.Drawing.Size(96, 46);
+            labelOmega.Size = new System.Drawing.Size(80, 29);
             labelOmega.TabIndex = 6;
-            labelOmega.Text = "omega = ";
+            labelOmega.Text = "omega";
             labelOmega.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // label1
+            // 
+            label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            label1.Location = new System.Drawing.Point(907, 24);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(71, 29);
+            label1.TabIndex = 15;
+            label1.Text = "x_0 = ";
+            label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // label2
+            // 
+            label2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            label2.Location = new System.Drawing.Point(1064, 20);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(81, 33);
+            label2.TabIndex = 16;
+            label2.Text = "y_0 = ";
+            label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // printAlfaLabel
             // 
             this.printAlfaLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.printAlfaLabel.Location = new System.Drawing.Point(907, 94);
+            this.printAlfaLabel.Location = new System.Drawing.Point(907, 106);
             this.printAlfaLabel.Name = "printAlfaLabel";
-            this.printAlfaLabel.Size = new System.Drawing.Size(85, 46);
+            this.printAlfaLabel.Size = new System.Drawing.Size(50, 34);
             this.printAlfaLabel.TabIndex = 10;
             this.printAlfaLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // printBetaLabel
             // 
             this.printBetaLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.printBetaLabel.Location = new System.Drawing.Point(1023, 94);
+            this.printBetaLabel.Location = new System.Drawing.Point(1023, 106);
             this.printBetaLabel.Name = "printBetaLabel";
-            this.printBetaLabel.Size = new System.Drawing.Size(85, 46);
+            this.printBetaLabel.Size = new System.Drawing.Size(50, 34);
             this.printBetaLabel.TabIndex = 11;
             this.printBetaLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // printOmegaLabel
             // 
             this.printOmegaLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.printOmegaLabel.Location = new System.Drawing.Point(1114, 94);
+            this.printOmegaLabel.Location = new System.Drawing.Point(1124, 106);
             this.printOmegaLabel.Name = "printOmegaLabel";
-            this.printOmegaLabel.Size = new System.Drawing.Size(85, 46);
+            this.printOmegaLabel.Size = new System.Drawing.Size(50, 34);
             this.printOmegaLabel.TabIndex = 12;
             this.printOmegaLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -184,9 +210,29 @@
             "Метод Рунге-Кутта"});
             this.listBox1.Location = new System.Drawing.Point(912, 699);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(233, 97);
+            this.listBox1.Size = new System.Drawing.Size(233, 66);
             this.listBox1.TabIndex = 14;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // textBoxX0
+            // 
+            this.textBoxX0.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBoxX0.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxX0.Location = new System.Drawing.Point(971, 24);
+            this.textBoxX0.Name = "textBoxX0";
+            this.textBoxX0.Size = new System.Drawing.Size(51, 35);
+            this.textBoxX0.TabIndex = 19;
+            this.textBoxX0.TextChanged += new System.EventHandler(this.textBoxX0_TextChanged);
+            // 
+            // textBoxY0
+            // 
+            this.textBoxY0.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBoxY0.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxY0.Location = new System.Drawing.Point(1129, 24);
+            this.textBoxY0.Name = "textBoxY0";
+            this.textBoxY0.Size = new System.Drawing.Size(53, 35);
+            this.textBoxY0.TabIndex = 20;
+            this.textBoxY0.TextChanged += new System.EventHandler(this.textBoxY0_TextChanged);
             // 
             // methodRungeKuttaBindingSource1
             // 
@@ -194,7 +240,11 @@
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(1390, 853);
+            this.ClientSize = new System.Drawing.Size(1390, 845);
+            this.Controls.Add(this.textBoxY0);
+            this.Controls.Add(this.textBoxX0);
+            this.Controls.Add(label2);
+            this.Controls.Add(label1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.printOmegaLabel);
             this.Controls.Add(this.printBetaLabel);
@@ -237,6 +287,8 @@
         private System.Windows.Forms.BindingSource methodEuleraBindingSource;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.BindingSource methodRungeKuttaBindingSource1;
+        private System.Windows.Forms.TextBox textBoxX0;
+        private System.Windows.Forms.TextBox textBoxY0;
     }
 }
 

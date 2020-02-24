@@ -31,7 +31,7 @@ namespace Tao_OpenGL_Initialization_Test
         private MethodSelector method = new MethodSelector();
 
         int countOfMas = 300;
-        float x0 = 0.1f, y0 = 0.1f;
+        float x0 = 0.5f, y0 = 0.5f;
 
         private float zoom = 10f;
 
@@ -87,6 +87,8 @@ namespace Tao_OpenGL_Initialization_Test
             Gl.glMatrixMode(Gl.GL_MODELVIEW);
 
             listBox1.SetSelected(1, true);
+            textBoxX0.Text = x0.ToString();
+            textBoxY0.Text = y0.ToString();
             timer1.Start();
         }
 
@@ -96,6 +98,32 @@ namespace Tao_OpenGL_Initialization_Test
                 method.setCalculateMethod(new MethodRungeKutta());
             else method.setCalculateMethod(new MethodEulera());
             notCalculate = true;
+        }
+
+        private void textBoxX0_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                x0 = float.Parse(textBoxX0.Text);
+                notCalculate = true;
+            }
+            catch(FormatException)
+            {
+                notCalculate = false;
+            }
+        }
+
+        private void textBoxY0_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                y0 = float.Parse(textBoxY0.Text);
+                notCalculate = true;
+            }
+            catch (FormatException)
+            {
+                notCalculate = false;
+            }
         }
 
         private void DrawDiagram()
