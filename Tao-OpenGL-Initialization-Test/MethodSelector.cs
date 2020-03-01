@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tao_OpenGL_Initialization_Test
+﻿namespace Tao_OpenGL_Initialization_Test
 {
     class MethodSelector
     {
-        private CalcuteMethods calcuteMethod;
-        private Formula formula;
+        private ICalcuteMethods calcuteMethod;
+        private IFormula formula;
         public MethodSelector() {
         }
 
-        public MethodSelector(CalcuteMethods calcuteMethod)
+        public MethodSelector(ICalcuteMethods calcuteMethod)
         {
             this.calcuteMethod = calcuteMethod;
         }
-        public void setCalculateMethod(CalcuteMethods calcuteMethod)
+        public void setCalculateMethod(ICalcuteMethods calcuteMethod)
         {
             this.calcuteMethod = calcuteMethod;
         }
@@ -25,9 +19,10 @@ namespace Tao_OpenGL_Initialization_Test
         {
             return this.calcuteMethod.calcute(size,formula,x0,y0);
         }
-        public void setFormula(Formula formula)
+        public void setFormula(IFormula formula)
         {
             this.formula = formula;
         }
     }
 }
+    

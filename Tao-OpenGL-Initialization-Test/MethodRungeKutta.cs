@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tao_OpenGL_Initialization_Test
+﻿namespace Tao_OpenGL_Initialization_Test
 {
-    class MethodRungeKutta : CalcuteMethods
+    class MethodRungeKutta : ICalcuteMethods
     {
-        private Formula formula;
+        private IFormula formula;
         private float x, y, t;
         private const float dt = 0.1f;
 
         private float k1, k2, k3, k4, m1, m2, m3, m4;
-        public float[,] calcute(int size, Formula formula, float x0, float y0)
+        public float[,] calcute(int size, IFormula formula, float x0, float y0)
         {
             float[,] GrapValuesArray = new float[size, 2];
             int elements_count = 1;
@@ -38,44 +32,44 @@ namespace Tao_OpenGL_Initialization_Test
         }
         private void calKoef()
         {
-            CalK1();
-            CalM1();
-            CalK2();
-            CalM2();
-            CalK3();
-            CalM3();
-            CalK4();
-            CalM4();
+            calK1();
+            calM1();
+            calK2();
+            calM2();
+            calK3();
+            calM3();
+            calK4();
+            calM4();
         }
-        private void CalK1()
+        private void calK1()
         {
             k1 = formula.computingX(x, y, t) * dt;
         }
-        private void CalM1()
+        private void calM1()
         {
             m1 = formula.computingY(x, y, t) * dt;
         }
-        private void CalK2()
+        private void calK2()
         {
             k2 = formula.computingX(x + k1 / 2, y + m1 / 2, t + dt / 2) * dt;
         }
-        private void CalM2()
+        private void calM2()
         {
             m2 = formula.computingY(x + k1 / 2, y + m1 / 2, t + dt / 2) * dt;
         }
-        private void CalK3()
+        private void calK3()
         {
             k3 = formula.computingX(x + k2 / 2, y + m2 / 2, t + dt / 2) * dt;
         }
-        private void CalM3()
+        private void calM3()
         {
             m3 = formula.computingY(x + k2 / 2, y + m2 / 2, t + dt / 2) * dt;
         }
-        private void CalK4()
+        private void calK4()
         {
             k4 = formula.computingX(x + k3, y + m3, t + dt) * dt;
         }
-        private void CalM4()
+        private void calM4()
         {
             m4 = formula.computingY(x + k3, y + m3, t + dt) * dt;
         }

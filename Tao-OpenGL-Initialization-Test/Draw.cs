@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Tao.FreeGlut;
-using Tao.OpenGl;
+﻿using Tao.OpenGl;
 
 
 namespace Tao_OpenGL_Initialization_Test
@@ -14,37 +7,37 @@ namespace Tao_OpenGL_Initialization_Test
     class Draw
     {
         
-        private float sizeOfSystem;
+        private readonly float sizeOfSystem;
         public Draw(float sizeOfSystem)
         {
             this.sizeOfSystem = sizeOfSystem;
         }
        
-        public void DrawSystemOfCoordinates()
+        public void drawSystemOfCoordinates()
         {
             Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
             Gl.glLoadIdentity();
             Gl.glColor3f(0, 0, 0);
             Gl.glPushMatrix();
-            Gl.glTranslated(5, 5, 0);
+            Gl.glTranslated(sizeOfSystem, sizeOfSystem, 0);
             
 
             Gl.glBegin(Gl.GL_LINES);
-            DrawAxis();
-            DrawArrows();
+            drawAxis();
+            drawArrows();
             Gl.glEnd();
 
-            DrawNet();
-            DrawSigna();
+            drawNet();
+            drawSigna();
             
 
         }
-        private void DrawSigna()
+        private void drawSigna()
         {
             PrintText2D.PrintText(sizeOfSystem + 0.3f, 0, "x");
             PrintText2D.PrintText(0.3f, sizeOfSystem - 0.3f, "y");
         }
-        private void DrawAxis()
+        private void drawAxis()
         {
             Gl.glVertex2d(0, -sizeOfSystem);
             Gl.glVertex2d(0, sizeOfSystem);
@@ -52,7 +45,7 @@ namespace Tao_OpenGL_Initialization_Test
             Gl.glVertex2d(-sizeOfSystem, 0);
             Gl.glVertex2d(sizeOfSystem, 0);
         }
-        private void DrawArrows()
+        private void drawArrows()
         {
             float v = sizeOfSystem - 0.3f;
             Gl.glVertex2d(0, sizeOfSystem);
@@ -65,7 +58,7 @@ namespace Tao_OpenGL_Initialization_Test
             Gl.glVertex2d(sizeOfSystem, 0);
             Gl.glVertex2d(v, -0.1);
         }
-        private void DrawNet()
+        private void drawNet()
         {
             Gl.glColor3f(0, 0, 255);
             Gl.glPointSize(3);

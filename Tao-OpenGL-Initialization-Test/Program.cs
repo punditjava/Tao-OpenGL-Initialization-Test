@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using Tao.OpenGl;
-using Tao.FreeGlut;
-using Tao.Platform.Windows;
 
 namespace Tao_OpenGL_Initialization_Test
 {

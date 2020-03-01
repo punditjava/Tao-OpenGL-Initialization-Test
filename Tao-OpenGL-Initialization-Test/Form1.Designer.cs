@@ -157,11 +157,11 @@
             this.AnT.Size = new System.Drawing.Size(877, 816);
             this.AnT.StencilBits = ((byte)(0));
             this.AnT.TabIndex = 0;
-            this.AnT.MouseMove += new System.Windows.Forms.MouseEventHandler(this.simpleOpenGlControl1_MouseMove);
+            this.AnT.MouseMove += new System.Windows.Forms.MouseEventHandler(this.simpleOpenGlControl1MouseMove);
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
+            this.timer1.Tick += new System.EventHandler(this.timer1Tick);
             // 
             // trackBar1
             // 
@@ -173,7 +173,7 @@
             this.trackBar1.Size = new System.Drawing.Size(56, 545);
             this.trackBar1.TabIndex = 7;
             this.trackBar1.Value = 250;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1Scroll);
             // 
             // trackBar2
             // 
@@ -185,7 +185,7 @@
             this.trackBar2.Size = new System.Drawing.Size(56, 545);
             this.trackBar2.TabIndex = 1;
             this.trackBar2.Value = 2100;
-            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
+            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2Scroll);
             // 
             // trackBar3
             // 
@@ -197,7 +197,7 @@
             this.trackBar3.Size = new System.Drawing.Size(56, 545);
             this.trackBar3.TabIndex = 1;
             this.trackBar3.Value = 500;
-            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
+            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3Scroll);
             // 
             // listBox1
             // 
@@ -212,7 +212,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(233, 66);
             this.listBox1.TabIndex = 14;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1SelectedIndexChanged);
             // 
             // textBoxX0
             // 
@@ -222,7 +222,7 @@
             this.textBoxX0.Name = "textBoxX0";
             this.textBoxX0.Size = new System.Drawing.Size(51, 35);
             this.textBoxX0.TabIndex = 19;
-            this.textBoxX0.TextChanged += new System.EventHandler(this.textBoxX0_TextChanged);
+            this.textBoxX0.TextChanged += new System.EventHandler(this.textBoxX0TextChanged);
             // 
             // textBoxY0
             // 
@@ -232,7 +232,7 @@
             this.textBoxY0.Name = "textBoxY0";
             this.textBoxY0.Size = new System.Drawing.Size(53, 35);
             this.textBoxY0.TabIndex = 20;
-            this.textBoxY0.TextChanged += new System.EventHandler(this.textBoxY0_TextChanged);
+            this.textBoxY0.TextChanged += new System.EventHandler(this.textBoxY0TextChanged);
             // 
             // methodRungeKuttaBindingSource1
             // 
@@ -257,7 +257,7 @@
             this.Controls.Add(labelAlfa);
             this.Controls.Add(this.AnT);
             this.Name = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.form1Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();

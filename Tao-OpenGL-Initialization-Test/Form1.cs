@@ -14,7 +14,7 @@ namespace Tao_OpenGL_Initialization_Test
 {
     public partial class Form1 : Form
     {
-        double ScreenW, ScreenH;
+        private double ScreenW, ScreenH;
 
         private float devX;
         private float devY;
@@ -26,14 +26,13 @@ namespace Tao_OpenGL_Initialization_Test
         private bool notCalculate = true;
         private int pointPosition = 0;
 
-        float Mcoord_X = 0, Mcoord_Y = 0;
+        private float Mcoord_X = 0, Mcoord_Y = 0;
 
-        private MethodSelector method = new MethodSelector();
+        private readonly MethodSelector method = new MethodSelector();
+        private readonly int countOfMas = 1000;
+        private float x0 = 0.5f, y0 = 0.5f;
 
-        int countOfMas = 300;
-        float x0 = 0.5f, y0 = 0.5f;
-
-        private float zoom = 10f;
+        private readonly float zoom = 10f;
 
         public Form1()
         {
@@ -43,25 +42,9 @@ namespace Tao_OpenGL_Initialization_Test
                 AnT.InitializeContexts();
             }
         }
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            alfa = (float)trackBar1.Value / 100;
-            notCalculate = true;
-        }
+        
 
-        private void trackBar2_Scroll(object sender, EventArgs e)
-        {
-            beta = (float)trackBar2.Value / 100;
-            notCalculate = true;
-        }
-
-        private void trackBar3_Scroll(object sender, EventArgs e)
-        {
-            omega = (float)trackBar3.Value / 100;
-            notCalculate = true;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void form1Load(object sender, EventArgs e)
         {
             Glut.glutInit();
             Glut.glutInitDisplayMode(Glut.GLUT_RGB | Glut.GLUT_DOUBLE);
@@ -92,43 +75,9 @@ namespace Tao_OpenGL_Initialization_Test
             timer1.Start();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void drawDiagram()
         {
-            if (listBox1.SelectedIndex == 1)
-                method.setCalculateMethod(new MethodRungeKutta());
-            else method.setCalculateMethod(new MethodEulera());
-            notCalculate = true;
-        }
-
-        private void textBoxX0_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                x0 = float.Parse(textBoxX0.Text);
-                notCalculate = true;
-            }
-            catch(FormatException)
-            {
-                notCalculate = false;
-            }
-        }
-
-        private void textBoxY0_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                y0 = float.Parse(textBoxY0.Text);
-                notCalculate = true;
-            }
-            catch (FormatException)
-            {
-                notCalculate = false;
-            }
-        }
-
-        private void DrawDiagram()
-        {
-            method.setFormula(new VanDerPol(alfa, beta, omega));
+            method.setFormula(new FormulaVanDerPol(alfa, beta, omega));
 
             if (notCalculate)
             {
@@ -152,29 +101,29 @@ namespace Tao_OpenGL_Initialization_Test
             Gl.glPointSize(1);
         }
 
-        private void simpleOpenGlControl1_MouseMove(object sender, MouseEventArgs e)
+        private void simpleOpenGlControl1MouseMove(object sender, MouseEventArgs e)
         {
             Mcoord_X = e.X;
             Mcoord_Y = e.Y;
         }
 
-        private void Timer1Tick(object sender, EventArgs e)
+        private void timer1Tick(object sender, EventArgs e)
         {
 
             if (pointPosition == countOfMas - 1)
                 pointPosition = 0;
-            Draw();
+            draw();
             
             pointPosition++;
         }
 
-        private void Draw()
+        private void draw()
         {
             Draw draw = new Draw(zoom / 2);
 
-            draw.DrawSystemOfCoordinates();
+            draw.drawSystemOfCoordinates();
             outputLabes();
-            DrawDiagram();
+            drawDiagram();
 
             Gl.glPopMatrix();
 
@@ -190,6 +139,45 @@ namespace Tao_OpenGL_Initialization_Test
             printAlfaLabel.Text = alfa.ToString();
             printBetaLabel.Text = beta.ToString();
             printOmegaLabel.Text = omega.ToString();
+        }
+        private void trackBar1Scroll(object sender, EventArgs e) {
+            alfa = (float)trackBar1.Value / 100;
+            notCalculate = true;
+        }
+        private void trackBar2Scroll(object sender, EventArgs e) {
+            beta = (float)trackBar2.Value / 100;
+            notCalculate = true;
+        }
+
+        private void trackBar3Scroll(object sender, EventArgs e) {
+            omega = (float)trackBar3.Value / 100;
+            notCalculate = true;
+        }
+        private void listBox1SelectedIndexChanged(object sender, EventArgs e) {
+            if (listBox1.SelectedIndex == 1)
+                method.setCalculateMethod(new MethodRungeKutta());
+            else method.setCalculateMethod(new MethodEulera());
+            notCalculate = true;
+        }
+
+        private void textBoxX0TextChanged(object sender, EventArgs e) {
+            try {
+                x0 = float.Parse(textBoxX0.Text);
+                notCalculate = true;
+            }
+            catch (FormatException) {
+                notCalculate = false;
+            }
+        }
+
+        private void textBoxY0TextChanged(object sender, EventArgs e) {
+            try {
+                y0 = float.Parse(textBoxY0.Text);
+                notCalculate = true;
+            }
+            catch (FormatException) {
+                notCalculate = false;
+            }
         }
     }
 }
